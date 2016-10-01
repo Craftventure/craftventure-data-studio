@@ -141,117 +141,117 @@ jQuery(document).ready(function ($) {
     // armorstand_show_arms|boolean
     // polar_bear_stand|boolean
     // no_gravity|boolean
-
-    if (true)
-        return;
-    var value = "fire|boolean\n" +
-        "custom_name|string\n" +
-        "custom_name_visible|boolean\n" +
-        "crouching|boolean\n" +
-        "eating|boolean\n" +
-        "arrow_count|integer\n" +
-        "sprinting|boolean\n" +
-        "glowing|boolean\n" +
-        "elytra|boolean\n" +
-        "small_armor_stand|boolean\n" +
-        "horse_tamed|boolean\n" +
-        "horse_saddled|boolean\n" +
-        "horse_chest|boolean\n" +
-        "horse_eating|boolean\n" +
-        "horse_rearing|boolean\n" +
-        "horse_mouth_open|boolean\n" +
-        "horse_variant|integer\n" +
-        "horse_color|integer\n" +
-        "horse_armor|integer\n" +
-        "rabbit_type|integer\n" +
-        "tamed_angry|boolean\n" +
-        "tamed_sitting|boolean\n" +
-        "tamed_tamed|boolean\n" +
-        "sheep_color|integer\n" +
-        "sheep_sheared|boolean\n" +
-        "potion_effect_color|integer\n" +
-        "invisible|boolean\n" +
-        "bat_hanging|boolean\n" +
-        "ageable_baby|boolean\n" +
-        "ocelot_type|integer\n" +
-        "wolf_damage|number\n" +
-        "wolf_begging|boolean\n" +
-        "wolf_collar_color|integer\n" +
-        "villager_type|integer\n" +
-        "irongolem_player_created|boolean\n" +
-        "snowman_hide_pumpkin|boolean\n" +
-        "blaze_on_fire|boolean\n" +
-        "creeper_state|integer\n" +
-        "creeper_charged|boolean\n" +
-        "creeper_ignited|boolean\n" +
-        "guardian_elderly|boolean\n" +
-        "guardian_retracting_spikes|boolean\n" +
-        "skeleton_type|integer\n" +
-        "skeleton_swinging_arms|boolean\n" +
-        "spider_climbing|boolean\n" +
-        "witch_aggressive|boolean\n" +
-        "zombie_baby|boolean\n" +
-        "zombie_type|integer\n" +
-        "zombie_converting|boolean\n" +
-        "zombie_hands_up|boolean\n" +
-        "enderman_block_id|string\n" +
-        "enderman_screaming|boolean\n" +
-        "ghast_attacking|boolean\n" +
-        "slime_size|integer\n" +
-        "minecart_block_id_and_damage|integer\n" +
-        "minecart_block_y|integer\n" +
-        "minecart_show_block|boolean\n" +
-        "minecart_furnace|boolean\n" +
-        "armorstand_hide_baseplate|boolean\n" +
-        "armorstand_show_arms|boolean\n" +
-        "polar_bear_stand|boolean\n" +
-        "no_gravity|boolean";
-    var values = value.split("\n");
-
-    var json = "";
-    var oneOf = [];
-    var value = 0;
-    for (var i = 0; i < values.length; i++) {
-        value++;
-        var datas = values[i].split("|");
-        oneOf.push({"$ref": "#/definitions/state_flag_" + datas[0]});
-        if (json.length > 0)
-            json += ",";
-        json += "        \"state_flag_" + datas[0] + "\": {\n" +
-            "            \"title\": \"" + datas[0].replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) + "\",\n" +
-            "            \"properties\": {\n" +
-            "                \"type\": {\n" +
-            "                    \"type\": \"integer\",\n" +
-            "                    \"enum\": [" + value + "],\n" +
-            "                    \"options\": {\n" +
-            "                        \"hidden\": true\n" +
-            "                    }\n" +
-            "                },\n" +
-            "                \"data\": {\n";
-
-        if (datas[1] === "boolean")
-            json += "                    \"type\": \"string\",\n" +
-                "                    \"enum\": [\n" +
-                "                        \"true\", \"false\"\n" +
-                "                    ]\n";
-        else if (datas[1] === "string")
-            json += "                    \"type\": \"string\"\n";
-        else if (datas[1] === "integer")
-            json += "                    \"type\": \"integer\"\n";
-        else if (datas[1] === "number")
-            json += "                    \"type\": \"number\"\n";
-        else
-            console.log("Unknown type" + datas[1]);
-
-        json += "                }\n" +
-            "            },\n" +
-            "            \"required\": [\n" +
-            "                \"type\",\n" +
-            "                \"data\"\n" +
-            "            ]\n" +
-            "        }";
-    }
-    console.log(JSON.parse("{" + json + "}"));
-    console.log(JSON.stringify(JSON.parse("{" + json + "}")));
-    console.log(JSON.stringify(oneOf));
+    //
+    // if (true)
+    //     return;
+    // var value = "fire|boolean\n" +
+    //     "custom_name|string\n" +
+    //     "custom_name_visible|boolean\n" +
+    //     "crouching|boolean\n" +
+    //     "eating|boolean\n" +
+    //     "arrow_count|integer\n" +
+    //     "sprinting|boolean\n" +
+    //     "glowing|boolean\n" +
+    //     "elytra|boolean\n" +
+    //     "small_armor_stand|boolean\n" +
+    //     "horse_tamed|boolean\n" +
+    //     "horse_saddled|boolean\n" +
+    //     "horse_chest|boolean\n" +
+    //     "horse_eating|boolean\n" +
+    //     "horse_rearing|boolean\n" +
+    //     "horse_mouth_open|boolean\n" +
+    //     "horse_variant|integer\n" +
+    //     "horse_color|integer\n" +
+    //     "horse_armor|integer\n" +
+    //     "rabbit_type|integer\n" +
+    //     "tamed_angry|boolean\n" +
+    //     "tamed_sitting|boolean\n" +
+    //     "tamed_tamed|boolean\n" +
+    //     "sheep_color|integer\n" +
+    //     "sheep_sheared|boolean\n" +
+    //     "potion_effect_color|integer\n" +
+    //     "invisible|boolean\n" +
+    //     "bat_hanging|boolean\n" +
+    //     "ageable_baby|boolean\n" +
+    //     "ocelot_type|integer\n" +
+    //     "wolf_damage|number\n" +
+    //     "wolf_begging|boolean\n" +
+    //     "wolf_collar_color|integer\n" +
+    //     "villager_type|integer\n" +
+    //     "irongolem_player_created|boolean\n" +
+    //     "snowman_hide_pumpkin|boolean\n" +
+    //     "blaze_on_fire|boolean\n" +
+    //     "creeper_state|integer\n" +
+    //     "creeper_charged|boolean\n" +
+    //     "creeper_ignited|boolean\n" +
+    //     "guardian_elderly|boolean\n" +
+    //     "guardian_retracting_spikes|boolean\n" +
+    //     "skeleton_type|integer\n" +
+    //     "skeleton_swinging_arms|boolean\n" +
+    //     "spider_climbing|boolean\n" +
+    //     "witch_aggressive|boolean\n" +
+    //     "zombie_baby|boolean\n" +
+    //     "zombie_type|integer\n" +
+    //     "zombie_converting|boolean\n" +
+    //     "zombie_hands_up|boolean\n" +
+    //     "enderman_block_id|string\n" +
+    //     "enderman_screaming|boolean\n" +
+    //     "ghast_attacking|boolean\n" +
+    //     "slime_size|integer\n" +
+    //     "minecart_block_id_and_damage|integer\n" +
+    //     "minecart_block_y|integer\n" +
+    //     "minecart_show_block|boolean\n" +
+    //     "minecart_furnace|boolean\n" +
+    //     "armorstand_hide_baseplate|boolean\n" +
+    //     "armorstand_show_arms|boolean\n" +
+    //     "polar_bear_stand|boolean\n" +
+    //     "no_gravity|boolean";
+    // var values = value.split("\n");
+    //
+    // var json = "";
+    // var oneOf = [];
+    // var value = 0;
+    // for (var i = 0; i < values.length; i++) {
+    //     value++;
+    //     var datas = values[i].split("|");
+    //     oneOf.push({"$ref": "#/definitions/state_flag_" + datas[0]});
+    //     if (json.length > 0)
+    //         json += ",";
+    //     json += "        \"state_flag_" + datas[0] + "\": {\n" +
+    //         "            \"title\": \"" + datas[0].replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) + "\",\n" +
+    //         "            \"properties\": {\n" +
+    //         "                \"type\": {\n" +
+    //         "                    \"type\": \"integer\",\n" +
+    //         "                    \"enum\": [" + value + "],\n" +
+    //         "                    \"options\": {\n" +
+    //         "                        \"hidden\": true\n" +
+    //         "                    }\n" +
+    //         "                },\n" +
+    //         "                \"data\": {\n";
+    //
+    //     if (datas[1] === "boolean")
+    //         json += "                    \"type\": \"string\",\n" +
+    //             "                    \"enum\": [\n" +
+    //             "                        \"true\", \"false\"\n" +
+    //             "                    ]\n";
+    //     else if (datas[1] === "string")
+    //         json += "                    \"type\": \"string\"\n";
+    //     else if (datas[1] === "integer")
+    //         json += "                    \"type\": \"integer\"\n";
+    //     else if (datas[1] === "number")
+    //         json += "                    \"type\": \"number\"\n";
+    //     else
+    //         console.log("Unknown type" + datas[1]);
+    //
+    //     json += "                }\n" +
+    //         "            },\n" +
+    //         "            \"required\": [\n" +
+    //         "                \"type\",\n" +
+    //         "                \"data\"\n" +
+    //         "            ]\n" +
+    //         "        }";
+    // }
+    // console.log(JSON.parse("{" + json + "}"));
+    // console.log(JSON.stringify(JSON.parse("{" + json + "}")));
+    // console.log(JSON.stringify(oneOf));
 });

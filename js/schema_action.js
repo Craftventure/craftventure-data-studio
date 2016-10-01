@@ -26,7 +26,11 @@ var schemaAction = {
                     {"$ref": "#/definitions/schematic"},
                     {"$ref": "#/definitions/blockchange"},
                     {"$ref": "#/definitions/chat"},
-                    {"$ref": "#/definitions/strikelightning"}
+                    {"$ref": "#/definitions/strikelightning"},
+                    {"$ref": "#/definitions/playsound"},
+                    {"$ref": "#/definitions/fallingarea"},
+                    {"$ref": "#/definitions/open"},
+                    {"$ref": "#/definitions/blockaction"}
                 ]
             }
         }
@@ -251,6 +255,277 @@ var schemaAction = {
                     },
                     "required": [
                         "message"
+                    ]
+                }
+            },
+            "required": [
+                "time",
+                "type",
+                "data"
+            ]
+        },
+        "playsound": {
+            "title": "Play Sound",
+            "properties": {
+                "time": {
+                    "type": "integer",
+                    "description": "The milliseconds at which this action should be executed"
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [6],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "data": {
+                    "title": "Data",
+                    "type": "object",
+                    "properties": {
+                        "x": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "world": {
+                            "type": "string",
+                            "default": "world",
+                            "description": "Should probably always be 'world'"
+                        },
+                        "sound_name": {
+                            "type": "string"
+                        },
+                        "volume": {
+                            "type": "number"
+                        },
+                        "pitch": {
+                            "type": "number"
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "z",
+                        "world",
+                        "sound_name",
+                        "volume",
+                        "pitch"
+                    ]
+                }
+            },
+            "required": [
+                "time",
+                "type",
+                "data"
+            ]
+        },
+        "open": {
+            "title": "Open",
+            "properties": {
+                "time": {
+                    "type": "integer",
+                    "description": "The milliseconds at which this action should be executed"
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [7],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "data": {
+                    "title": "Data",
+                    "type": "object",
+                    "properties": {
+                        "x": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "world": {
+                            "type": "string",
+                            "default": "world",
+                            "description": "Should probably always be 'world'"
+                        },
+                        "type": {
+                            "type": "string",
+                            "default": "chestopen",
+                            "enum": ["chestopen", "chestclose"]
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "z",
+                        "world",
+                        "type"
+                    ]
+                }
+            },
+            "required": [
+                "time",
+                "type",
+                "data"
+            ]
+        },
+        "blockaction": {
+            "title": "Block Action",
+            "properties": {
+                "time": {
+                    "type": "integer",
+                    "description": "The milliseconds at which this action should be executed"
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [8],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "data": {
+                    "title": "Data",
+                    "type": "object",
+                    "properties": {
+                        "x": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "world": {
+                            "type": "string",
+                            "default": "world",
+                            "description": "Should probably always be 'world'"
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": ["chestopen", "chestclose"]
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "z",
+                        "world",
+                        "type"
+                    ]
+                }
+            },
+            "required": [
+                "time",
+                "type",
+                "data"
+            ]
+        },
+        "fallingarea": {
+            "title": "Falling Area",
+            "properties": {
+                "time": {
+                    "type": "integer",
+                    "description": "The milliseconds at which this action should be executed"
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [9],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "data": {
+                    "title": "Data",
+                    "type": "object",
+                    "properties": {
+                        "x_min": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y_min": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z_min": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "x_max": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y_max": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z_max": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "velocity_x": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "velocity_y": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "velocity_z": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "world": {
+                            "type": "string",
+                            "default": "world",
+                            "description": "Should probably always be 'world'"
+                        }
+                    },
+                    "required": [
+                        "x_min",
+                        "y_min",
+                        "z_min",
+                        "x_max",
+                        "y_max",
+                        "z_max",
+                        "velocity_x",
+                        "velocity_y",
+                        "velocity_z",
+                        "world"
                     ]
                 }
             },
