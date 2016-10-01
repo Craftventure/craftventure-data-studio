@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Studio</title>
+    <script src="js/jsoneditor.min.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.0.slim.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            crossorigin="anonymous"></script>
+
+    <script src="js/schema_particle_path.js" id="schema_particle_path"></script>
+    <script src="js/schema_action.js" id="schema_action"></script>
+    <script src="js/schema_actor.js" id="schema_actor"></script>
+    <script src="js/schema_script.js" id="schema_script"></script>
+    <script src="js/schema_equipment.js" id="schema_equipment"></script>
+
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.3/css/selectize.min.css">
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.3/js/standalone/selectize.min.js"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+          crossorigin="anonymous">
+
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="container">
+
+    <div id="content">
+        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+            <li class="active"><a href="#particle_path" data-toggle="tab">Particle Path</a></li>
+            <li><a href="#action" data-toggle="tab">Action</a></li>
+            <li><a href="#actor" data-toggle="tab">Actor (Unstable!)</a></li>
+            <li><a href="#actorequipment" data-toggle="tab">Actor Equipment</a></li>
+            <li><a href="#script" data-toggle="tab">Script</a></li>
+        </ul>
+        <div id="my-tab-content" class="tab-content">
+            <div class="tab-pane active" id="particle_path">
+            </div>
+            <div class="tab-pane" id="action">
+            </div>
+            <div class="tab-pane" id="actor">
+            </div>
+            <div class="tab-pane" id="actorequipment">
+            </div>
+            <div class="tab-pane" id="script">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
