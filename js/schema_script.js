@@ -17,15 +17,6 @@ var schemaScript = {
                 "hidden": true
             }
         },
-        "file_prefix": {
-            "type": ["string", "null"],
-            "description": "The file prefix used for . Should be unique across all scripts",
-            "default": "example_prefix_"
-        },
-        "script_name": {
-            "type": ["string", "null"],
-            "description": "The name of the script file (javascript, used for acis and other shows) linked to this controller"
-        },
         "update_tick": {
             "description": "The interval at which submodules which support the 'update_tick' setting get updated. This setting can be overridden by setting the 'update_tick' of a module to a non-null value",
             "type": "integer"
@@ -78,8 +69,6 @@ var schemaScript = {
     "required": [
         "version",
         "version_minor",
-        "file_prefix",
-        "script_name",
         "update_tick",
         "auto_start",
         "repeat",
