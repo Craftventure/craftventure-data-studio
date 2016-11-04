@@ -29,7 +29,6 @@ var schemaAction = {
                     {"$ref": "#/definitions/strikelightning"},
                     {"$ref": "#/definitions/playsound"},
                     {"$ref": "#/definitions/fallingarea"},
-                    {"$ref": "#/definitions/open"},
                     {"$ref": "#/definitions/blockaction"}
                 ]
             }
@@ -329,65 +328,6 @@ var schemaAction = {
                 "data"
             ]
         },
-        "open": {
-            "title": "Open",
-            "properties": {
-                "time": {
-                    "type": "integer",
-                    "description": "The milliseconds at which this action should be executed"
-                },
-                "type": {
-                    "type": "integer",
-                    "enum": [7],
-                    "options": {
-                        "hidden": true
-                    }
-                },
-                "data": {
-                    "title": "Data",
-                    "type": "object",
-                    "properties": {
-                        "x": {
-                            "type": "number",
-                            "default": 0,
-                            "description": "The location of the block you want to change"
-                        },
-                        "y": {
-                            "type": "number",
-                            "default": 0,
-                            "description": "The location of the block you want to change"
-                        },
-                        "z": {
-                            "type": "number",
-                            "default": 0,
-                            "description": "The location of the block you want to change"
-                        },
-                        "world": {
-                            "type": "string",
-                            "default": "world",
-                            "description": "Should probably always be 'world'"
-                        },
-                        "type": {
-                            "type": "string",
-                            "default": "chestopen",
-                            "enum": ["chestopen", "chestclose"]
-                        }
-                    },
-                    "required": [
-                        "x",
-                        "y",
-                        "z",
-                        "world",
-                        "type"
-                    ]
-                }
-            },
-            "required": [
-                "time",
-                "type",
-                "data"
-            ]
-        },
         "blockaction": {
             "title": "Block Action",
             "properties": {
@@ -427,8 +367,20 @@ var schemaAction = {
                             "description": "Should probably always be 'world'"
                         },
                         "type": {
-                            "type": "string",
-                            "enum": ["chestopen", "chestclose"]
+                            "type": "integer",
+                            "enum": [
+                                1, 2, 3, 4, 5, 6
+                            ],
+                            "options": {
+                                "enum_titles": [
+                                    "chestopen", "chestclose", "openopenable", "closeopenable", "switchon", "switchoff"
+                                ]
+                            }
+                        },
+                        "fake": {
+                            "type": "boolean",
+                            "default": false,
+                            "description": "Try to use 'false' unless you really need to use 'true' (Note: chestopen/chestclose currently always use fake regardless of your settings, but this might change in the future)"
                         }
                     },
                     "required": [
@@ -436,7 +388,8 @@ var schemaAction = {
                         "y",
                         "z",
                         "world",
-                        "type"
+                        "type",
+                        "fake"
                     ]
                 }
             },

@@ -1,7 +1,7 @@
-var schemaScript = {
+var schemaSettings = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "title": "Script",
+    "title": "Settings",
     "properties": {
         "version": {
             "type": "integer",

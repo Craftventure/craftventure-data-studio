@@ -1,7 +1,7 @@
-var schemaActor = {
+var schemaNpc = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
-    "title": "Actor (unstable!)",
+    "title": "Npc (unstable!)",
     "properties": {
         "preferred_type": {
             "type": "string",

@@ -1,4 +1,4 @@
-var schemaActorEquipment = {
+var schemaNpcEquipment = {
     "$schema": "http://json-schema.org/draft-04/schema#",
     "type": "object",
     "title": "Actor Equipment",

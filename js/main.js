@@ -38,7 +38,7 @@ function download(text, name, type) {
     a.click();
 }
 
-function createEditor(idSelector, schema, type) {
+function createEditor(idSelector, schema, type, fileName) {
     var element = $("#" + idSelector);
     var buttonHolder = $('<div id="button_holder"></div>');
     element.append(buttonHolder);
@@ -54,6 +54,8 @@ function createEditor(idSelector, schema, type) {
     editor.cvOptions.idSelector = idSelector;
     editor.cvOptions.type = type;
     editors.push(editor);
+    editor.cvOptions.fileName = {};
+    editor.cvOptions.fileName.name = fileName;
 
     $(loadButton, 'input').on('change', function (event) {
         loadJson(event, editor);
@@ -61,6 +63,7 @@ function createEditor(idSelector, schema, type) {
     $(saveButton, 'input').click(function (event) {
         saveJson(event, editor);
     });
+    return editor;
 }
 
 jQuery(document).ready(function ($) {
@@ -73,11 +76,11 @@ jQuery(document).ready(function ($) {
     JSONEditor.defaults.options.object_layout = 'grid';
     JSONEditor.defaults.options.keep_oneof_values = false;
 
-    createEditor('particle_path', schemaParticlePath, 'particlePath');
-    createEditor('action', schemaAction, 'action');
-    createEditor('actor', schemaActor, 'actor');
-    createEditor('actorequipment', schemaActorEquipment, 'actorEquipment');
-    createEditor('script', schemaScript, 'script');
+    createEditor('particle_path', schemaParticlePath, 'particlePath', 'particle.json');
+    createEditor('action', schemaAction, 'action', 'action.json');
+    createEditor('npc', schemaNpc, 'npc', 'npc.json');
+    createEditor('npcquipment', schemaNpcEquipment, 'npcquipment', 'npc.json');
+    createEditor('settings', schemaSettings, 'settings', 'settings.json');
 
     // fire|boolean
     // custom_name|string
