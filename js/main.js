@@ -81,6 +81,7 @@ jQuery(document).ready(function ($) {
     createEditor('npc', schemaNpc, 'npc', 'npc.json');
     createEditor('npcquipment', schemaNpcEquipment, 'npcquipment', 'npc.json');
     createEditor('settings', schemaSettings, 'settings', 'settings.json');
+    createEditor('ridescene', schemaRideScene, 'ridescene', 'scenes.json');
 
     // fire|boolean
     // custom_name|string

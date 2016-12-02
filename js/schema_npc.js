@@ -6,7 +6,7 @@ var schemaNpc = {
         "preferred_type": {
             "type": "string",
             "enum": [
-                "ARMOR_STAND",
+                "ARMORSTAND",
                 "CREEPER"
             ]
         },
