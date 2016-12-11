@@ -29,7 +29,8 @@ var schemaAction = {
                     {"$ref": "#/definitions/strikelightning"},
                     {"$ref": "#/definitions/playsound"},
                     {"$ref": "#/definitions/fallingarea"},
-                    {"$ref": "#/definitions/blockaction"}
+                    {"$ref": "#/definitions/blockaction"},
+                    {"$ref": "#/definitions/potioneffect"}
                 ]
             }
         }
@@ -152,6 +153,11 @@ var schemaAction = {
                             "type": "boolean",
                             "default": true,
                             "description": "True if this block will be send as a fake block and thus not edit the world"
+                        },
+                        "physics": {
+                            "type": "boolean",
+                            "default": true,
+                            "description": "If Bukkit should apply physics to the placed block like gravity and redstone updates"
                         }
                     },
                     "required": [
@@ -160,7 +166,8 @@ var schemaAction = {
                         "z",
                         "world",
                         "data",
-                        "fake"
+                        "fake",
+                        "physics"
                     ]
                 }
             },
@@ -319,6 +326,103 @@ var schemaAction = {
                         "sound_name",
                         "volume",
                         "pitch"
+                    ]
+                }
+            },
+            "required": [
+                "time",
+                "type",
+                "data"
+            ]
+        },
+        "potioneffect": {
+            "title": "Potion effect",
+            "properties": {
+                "time": {
+                    "type": "integer",
+                    "description": "The milliseconds at which this action should be executed"
+                },
+                "type": {
+                    "type": "integer",
+                    "enum": [7],
+                    "options": {
+                        "hidden": true
+                    }
+                },
+                "data": {
+                    "title": "Data",
+                    "type": "object",
+                    "properties": {
+                        "x": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "y": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "z": {
+                            "type": "number",
+                            "default": 0,
+                            "description": "The location of the block you want to change"
+                        },
+                        "world": {
+                            "type": "string",
+                            "default": "world",
+                            "description": "Should probably always be 'world'"
+                        },
+                        "duration": {
+                            "type": "integer",
+                            "default": "world"
+                        },
+                        "amplifier": {
+                            "type": "integer",
+                            "default": "world"
+                        },
+                        "radius": {
+                            "type": ["number", "null"],
+                            "default": 5,
+                            "description": "If null, the effect will be send to everyone in the area, if set however, it will send the effect to everyone who is within the area as well as within the given radius"
+                        },
+                        "ambient": {
+                            "type": "boolean",
+                            "default": true,
+                            "description": "Ambient particles are more transparent and is naturally only used by beacon effects"
+                        },
+                        "particles": {
+                            "type": "boolean",
+                            "default": true,
+                            "description": "If false, no particles will be showed for the effect at all"
+                        },
+                        "color": {
+                            "type": ["integer", "null"],
+                            "default": null,
+                            "description": "Optional color that will override the particle color in RGB format in decimal. So for example, white (0xFFFFFF) would be 16777215. To convert hex colors, search on Google for '0xffffff to decimal'"
+                        },
+                        "potion_effect_type": {
+                            "type": "string",
+                            "enum": [
+                                "speed", "slow", "fast_digging", "slow_digging", "increase_damage", "heal", "harm", "jump", "confusion", "regeneration", "damage_resistance", "fire_resistance", "water_breathing", "invisibility", "blindness", "night_vision", "hunger", "weakness", "poison", "wither", "health_boost", "absorption", "saturation", "glowing", "levitation", "luck", "unluck"
+                            ],
+                            "options": {
+                                "enum_titles": [
+                                    "speed", "slow", "fast_digging", "slow_digging", "increase_damage", "heal", "harm", "jump", "confusion", "regeneration", "damage_resistance", "fire_resistance", "water_breathing", "invisibility", "blindness", "night_vision", "hunger", "weakness", "poison", "wither", "health_boost", "absorption", "saturation", "glowing", "levitation", "luck", "unlock"
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "x",
+                        "y",
+                        "z",
+                        "world",
+                        "ambient",
+                        "duration",
+                        "amplifier",
+                        "potionEffectType",
+                        "particles"
                     ]
                 }
             },
