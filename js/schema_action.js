@@ -421,7 +421,7 @@ var schemaAction = {
                         "ambient",
                         "duration",
                         "amplifier",
-                        "potionEffectType",
+                        "potion_effect_type",
                         "particles"
                     ]
                 }

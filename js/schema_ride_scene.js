@@ -3,7 +3,7 @@ var schemaRideScene = {
     "type": "object",
     "title": "Ride Scenes",
     "properties": {
-        "scenes": {
+        "items": {
             "title": "Scenes",
             "type": "array",
             "items": {
@@ -41,6 +41,6 @@ var schemaRideScene = {
         }
     },
     "required": [
-        "scenes"
+        "items"
     ]
 }
