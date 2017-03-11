@@ -5,11 +5,17 @@ var schemaAction = {
     "properties": {
         "target_duration": {
             "type": "integer",
+            "default": 1000,
             "description": "The minimum length in milliseconds of this animation"
         },
         "repeat": {
             "type": "boolean",
             "description": "True if this animation should loop while enabled"
+        },
+        "play_without_players_in_area": {
+            "type": "boolean",
+            "default": false,
+            "description": "True if these actions should be executed even when there are no players within the area. Should usually only be used to enable schematics pastes that reset a scene so it is always reset"
         },
         "update_tick": {
             "type": "integer",
@@ -596,6 +602,7 @@ var schemaAction = {
     "required": [
         "target_duration",
         "repeat",
-        "frames"
+        "frames",
+        "play_without_players_in_area"
     ]
 }
