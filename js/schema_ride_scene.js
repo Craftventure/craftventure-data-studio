@@ -12,7 +12,7 @@ var schemaRideScene = {
                 "properties": {
                     "at": {
                         "type": "number",
-                        "description":"The distance on the track segment at which this trigger should activate. See /nearesttracknode"
+                        "description": "The distance on the track segment at which this trigger should activate. See /nearesttracknode"
                     },
                     "segment_id": {
                         "type": "string"
@@ -28,6 +28,11 @@ var schemaRideScene = {
                         "enum": [
                             "start", "stop"
                         ]
+                    },
+                    "play_without_players": {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "True if you want this scene to play even when there are no players in the train that triggers this scene"
                     }
                 },
                 "required": [
@@ -35,7 +40,8 @@ var schemaRideScene = {
                     "segment_id",
                     "group_id",
                     "name",
-                    "type"
+                    "type",
+                    "play_without_players"
                 ]
             }
         }

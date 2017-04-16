@@ -60,6 +60,11 @@ var schemaAction = {
                     "title": "Data",
                     "type": "object",
                     "properties": {
+                        "fast_mode": {
+                            "type": "boolean",
+                            "default": true,
+                            "description": "True if you want to use fastmode for this schematic,"
+                        },
                         "no_air": {
                             "type": "boolean",
                             "default": true,
@@ -96,6 +101,7 @@ var schemaAction = {
                         }
                     },
                     "required": [
+                        "fast_mode",
                         "no_air",
                         "entities",
                         "world",
