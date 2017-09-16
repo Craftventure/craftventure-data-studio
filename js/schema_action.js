@@ -62,7 +62,7 @@ var schemaAction = {
                     "properties": {
                         "fast_mode": {
                             "type": "boolean",
-                            "default": true,
+                            "default": false,
                             "description": "True if you want to use fastmode for this schematic,"
                         },
                         "no_air": {
